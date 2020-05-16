@@ -13,7 +13,7 @@ def teacher(request):
 def student(request):
     context = {
         'room_name': 'saturday12345kumar',
-        'name': 'Mukesh kumar',
+        'name': 'Dheeraj kumar',
         'subject': 'physics',
     }
     return render(request, 'student.html', context)
