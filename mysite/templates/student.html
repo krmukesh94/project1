@@ -1,0 +1,51 @@
+<html itemscope itemtype="http://schema.org/Product" prefix="og: http://ogp.me/ns#" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <script src="https://meet.jit.si/external_api.js"></script>
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js
+"></script>
+    </head>
+    <body>
+
+        <script>
+		$(document).ready(function(){
+            var domain = "meet.jit.si";
+			var options = {
+			roomName: "{{ room_name }}",
+			height: 700,
+			parentNode: document.querySelector('#meet'),
+			interfaceConfigOverwrite: {
+					TOOLBAR_BUTTONS: [
+					'microphone', 'camera', 'closedcaptions', 'desktop',
+					'fodeviceselection', 'hangup', 'chat', 'profile','fullscreen',
+					'etherpad', 'settings','raisehand','videoquality',
+					'invite',
+					'tileview', 'download', 'help'
+					],
+					SETTINGS_SECTIONS: [ 'devices']
+				},
+
+			configOverwrite: {
+					startAudioMuted: 1,
+					startWithAudioMuted: true,
+					startVideoMuted: 1,
+					startWithVideoMuted: true,
+				}
+			}
+		var api = new JitsiMeetExternalAPI(domain, options);
+			var subject = "{{ subject }}";
+
+			var username = "{{ name }}";
+
+			api.executeCommand('displayName', username);
+			api.executeCommand('subject', subject);
+
+		});
+
+    </script>
+
+<h4 class="card-title">Classroom Session</h4>
+<div id="meet" style="width:100%; border-radius: 6px;"></div>
+    </body>
+</html>
